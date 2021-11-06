@@ -15,7 +15,11 @@ app.use(express.json());
 
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '..', "build")));
+    app.use(express.static('exercise-tracker/build'));
+    
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './exercise-tracker/build', 'index.html'));
+    })
 }
 
 app.listen(PORT, () => {
