@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 require('./models/index')
 
-
+const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-
+//need /api routes here later one!!!
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('exercise-tracker/build'));
