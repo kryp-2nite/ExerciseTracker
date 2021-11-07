@@ -1,0 +1,94 @@
+import React, { useState, useEffect } from 'react';
+import CommentForm from './CommentForm';
+import Comment from './Comment';
+import ExerciseFrom from './ExerciseFrom';
+import * as ExercisePostService from '../../api/ExercisePostService';
+import './style.css';
+
+const Posts = ({ 
+    getPostAgain,
+    user,
+    id,
+    typeOfExercise,
+    sets,
+    reps,
+    weight,
+}) => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedtypeOfExercise, setTypeOfExercise] = useState(typeOfExercise);
+    const [comments, setComments] = useState([]);
+    const [editedSets, setSets] = useState(sets);
+    const [editedReps, setReps] = useState(reps);
+    const [editedWeight, setWeight] = useState(weight);
+
+    const handleEdit = async() => {
+        console.log("handled edit");
+        setIsEditing(!isEditing);
+        //meaning submit is showing
+        if(isEditing) {
+            let editedPost = {
+                typeOfExercise: editedtypeOfExercise,
+                sets: editedSets,
+                reps: editedReps,
+                weight: editedWeight,
+            };
+            await ExercisePostService.update(id, editedPost);
+            getPostAgain();
+        }
+    };
+
+    const handleDelete = async() => {
+        await ExercisePostService.remove(id);
+        getPostAgain();
+    };
+
+    async function fetchComments(id) {
+        let res = await ExercisePostService.getAllComments(id);
+        if (res.status === 200) {
+            setComments(res.data.data);
+        }
+    }
+
+    useEffect(() => {
+        fetchComments(id)
+    }, []);
+
+    return (
+        <div>
+            <div className="container">
+                <div className="post__body">
+                    <div className="typeofexercise">{typeOfExercise}</div>
+                    <div className="post__sets">{sets}</div>
+                    <div className="post__reps">{reps}</div>
+                    <div className="post__weight">{weight}</div>
+                    <button className="button" onClick={handleDelete}> Delete Post </button>
+                </div>
+                <div className="comment__section">
+                    <div className="chat__section">
+                        <h6 className="chat__h6">Chat:</h6>
+                        {comments.map((comment) => {
+                            return (
+                                <Comment
+                                authour={comment.authour}
+                                content={comment.content}
+                                key={comment._id}
+                                commentID={comment._id}
+                                id={id}
+                                getCommentsAgain={(id) => fetchComments(id)}
+                                />
+                            )
+                        })}
+                    </div>
+                    <CommentForm
+                    id={id}
+                    user={user}
+                    getPostAgain={() => getPostAgain()}
+                    getCommentsAgain={(id) => fetchComments(id)}
+                    />
+                </div>
+            </div>
+         </div>
+    );
+};
+
+export default Posts
