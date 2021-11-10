@@ -33,7 +33,7 @@ const remove = (id) => {
 }
 
 const removeComment = (id, commentId) => {
-    return tellExerciseTrackerTo.delete(`/ExercisePost/${id}/comment/${commentId}`, data)
+    return tellExerciseTrackerTo.delete(`/ExercisePost/${id}/comment/${commentId}`)
 }
 
 

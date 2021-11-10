@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css";
+import "./style.css";
 import * as ExercisePostService from "../../api/ExercisePostService";
 
 const CommentForm = ({ id, getCommentsAgain, getPostAgain }) => {

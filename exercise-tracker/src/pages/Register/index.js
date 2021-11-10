@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./styles.css";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as UserService from '../../api/UserService'
 import { setToken } from '../../utils/tokenService';
 
 
 
 const Register = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ const Register = () => {
             setEmail('');
             setPassword('');
             //redirect to homepage
-            history.push('/');
+            navigate.push('/');
         }
       } else {
           alert('server error');

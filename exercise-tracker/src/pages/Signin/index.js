@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './style.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { setToken } from '../../utils/tokenService';
 import * as UserService from "../../api/UserService"
 
 const Signin = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -27,7 +27,7 @@ const Signin = () => {
             setToken(token);
             setEmail('');
             setPassword('');
-            history.push('/homepage')
+            navigate.push('/homepage')
         } else {
             alert('Server error, Enter valid credentials.');
         }

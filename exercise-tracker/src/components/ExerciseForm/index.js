@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import ExercisePostService from '../../api/ExercisePostService'
+import * as ExercisePostService from '../../api/ExercisePostService'
 import './style.css';
 
 const PostForm = ({getPostsAgain}) => {

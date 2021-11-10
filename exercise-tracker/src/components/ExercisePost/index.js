@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import CommentForm from './CommentForm';
-import Comment from './Comment';
-import ExerciseFrom from './ExerciseFrom';
+import CommentForm from '../CommentForm';
+import Comment from '../Comment';
 import * as ExercisePostService from '../../api/ExercisePostService';
 import './style.css';
 
@@ -15,7 +14,7 @@ const Posts = ({
     weight,
 }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [editedtypeOfExercise, setTypeOfExercise] = useState(typeOfExercise);
+    const [editedTypeOfExercise, setTypeOfExercise] = useState(typeOfExercise);
     const [comments, setComments] = useState([]);
     const [editedSets, setSets] = useState(sets);
     const [editedReps, setReps] = useState(reps);
@@ -27,7 +26,7 @@ const Posts = ({
         //meaning submit is showing
         if(isEditing) {
             let editedPost = {
-                typeOfExercise: editedtypeOfExercise,
+                typeOfExercise: editedTypeOfExercise,
                 sets: editedSets,
                 reps: editedReps,
                 weight: editedWeight,
@@ -51,17 +50,58 @@ const Posts = ({
 
     useEffect(() => {
         fetchComments(id)
-    }, []);
+    }, [id]);
 
     return (
         <div>
             <div className="container">
                 <div className="post__body">
-                    <div className="typeofexercise">{typeOfExercise}</div>
-                    <div className="post__sets">{sets}</div>
-                    <div className="post__reps">{reps}</div>
-                    <div className="post__weight">{weight}</div>
-                    <button className="button" onClick={handleDelete}> Delete Post </button>
+                    {!isEditing && <h3>{typeOfExercise}</h3>}
+                    {isEditing && (
+                        <input 
+                            onChange={(e) => setTypeOfExercise(e.target.value)}
+                            value={editedTypeOfExercise}
+                            type="text"
+                            name="TypeOfExercise"
+                        />
+                    )}
+                    <div>
+                        <button onClick={handleEdit}>
+                            {isEditing ? "SUBMIT" : "EDIT"}
+                        </button>
+                        <button className="button" onClick={handleDelete}> Delete Post </button>
+                    </div>
+                </div>
+                {!isEditing && <p>sets: {sets}</p>}
+                {isEditing && (
+                    <input 
+                        onchange={(e) => setSets(e.target.value)}
+                        value={editedSets}
+                        type="text"
+                        name="sets"
+                    />
+                )}
+                <div>
+                    {!isEditing && <p>reps: {reps}</p>}
+                    {isEditing && (
+                        <input 
+                            onchange={(e) => setReps(e.target.value)}
+                            value={reps}
+                            type="text"
+                            name="reps"
+                        />
+                    )}
+                    <div>
+                        {!isEditing && <p>Weight: {weight}</p>}
+                        {isEditing && (
+                            <input 
+                                onchange={(e) =>setWeight(e.target.value)}
+                                value={weight}
+                                type="text"
+                                name="weight"
+                            />
+                        )}
+                    </div>
                 </div>
                 <div className="comment__section">
                     <div className="chat__section">
@@ -69,7 +109,7 @@ const Posts = ({
                         {comments.map((comment) => {
                             return (
                                 <Comment
-                                authour={comment.authour}
+                                author={comment.author}
                                 content={comment.content}
                                 key={comment._id}
                                 commentID={comment._id}
