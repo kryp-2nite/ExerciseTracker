@@ -10,7 +10,7 @@ const createExercisePost = (req, res) => {
     let comments = req.body.comments;
     let author = req.body.author;
 
-    const exercisepost = new Exercise({
+    const post = new Exercise({
         typeOfExercise: typeOfExercise,
         date: date,
         sets: sets,
@@ -20,8 +20,8 @@ const createExercisePost = (req, res) => {
         author: author,
     });
 
-    console.log(exercisepost);
-    exercisepost.save((err, exercisepost) => {
+    console.log(post);
+    post.save((err, post) => {
         if (err) {
             return res.status(400).json({ 
                 errors: err.message
@@ -30,15 +30,16 @@ const createExercisePost = (req, res) => {
 
         return res.status(200).json({ 
             message: "Exercise Post Created",
-            exercisepost,
+            post,
         });
     });
 };
 
 const index = (req, res) => {
+    console.log("index:")
     ExercisePost.find({}, (err, foundPosts) => {
         if (err) return console.log("Error in ExercisePost#index", err);
-
+        console.log(foundPosts);
         return res.status(200).json({ 
             message: "Success",
             data: foundPosts,
@@ -98,7 +99,7 @@ const createComment = (req, res) => {
         foundPost.save();
 
         return res.status(201).json({ 
-            message: "Succes",
+            message: "Success",
             data: foundPost.comments,
         });
     })

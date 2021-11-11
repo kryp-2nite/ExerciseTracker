@@ -49,7 +49,7 @@ const Register = () => {
                 <input
                     className="register__firstname"
                     placeholder="First name"
-                    onchange={(e) => setFirstName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
                     value={firstName}
                     minLength="2"
                     maxLength="50"
@@ -58,7 +58,7 @@ const Register = () => {
                 <input
                     className="register__lastname"
                     placeholder="Last name"
-                    onchange={(e) => setLastName(e.target.value)}
+                    onChange={(e) => setLastName(e.target.value)}
                     value={lastName}
                     minLength="2"
                     maxLength="50"
@@ -67,7 +67,7 @@ const Register = () => {
                 <input
                     className="register__email"
                     placeholder="Email"
-                    onchange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     type="email"
                     required
@@ -75,7 +75,7 @@ const Register = () => {
                 <input
                     className="register__password"
                     placeholder="Password"
-                    onchange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     value={password}
                     type="password"
                     minLength="5"

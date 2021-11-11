@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExercisePost from "../../components/ExercisePost";
-import ExerciseFrom from '../../components/ExerciseForm';
+import ExerciseForm from '../../components/ExerciseForm';
 import * as ExercisePostService from "../../api/ExercisePostService";
 import Nav from "../../components/Nav";
 
@@ -8,6 +8,7 @@ const HomePage = () => {
     const [posts, setPosts] = useState([]);
 
     async function fetchPosts() {
+        console.log("fetched Posts")
         let res = await ExercisePostService.getAll();
         if (res.status === 200) {
             setPosts(res.data.data.reverse());
@@ -22,8 +23,8 @@ const HomePage = () => {
         <div>
             <Nav />
             <div>
-                <ExerciseFrom getPostAgain={() => fetchPosts()} />
-                {posts.map((post) => {
+                <ExerciseForm getPostAgain={() => fetchPosts()} /> 
+                 {posts.map((post) => {
                     return (
                         <ExercisePost 
                             typeOfExercise = {post.typeOfExercise}

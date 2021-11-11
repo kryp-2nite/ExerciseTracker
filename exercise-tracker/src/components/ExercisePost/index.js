@@ -75,7 +75,7 @@ const Posts = ({
                 {!isEditing && <p>sets: {sets}</p>}
                 {isEditing && (
                     <input 
-                        onchange={(e) => setSets(e.target.value)}
+                        onChange={(e) => setSets(e.target.value)}
                         value={editedSets}
                         type="text"
                         name="sets"
@@ -85,7 +85,7 @@ const Posts = ({
                     {!isEditing && <p>reps: {reps}</p>}
                     {isEditing && (
                         <input 
-                            onchange={(e) => setReps(e.target.value)}
+                            onChange={(e) => setReps(e.target.value)}
                             value={reps}
                             type="text"
                             name="reps"
@@ -95,7 +95,7 @@ const Posts = ({
                         {!isEditing && <p>Weight: {weight}</p>}
                         {isEditing && (
                             <input 
-                                onchange={(e) =>setWeight(e.target.value)}
+                                onChange={(e) =>setWeight(e.target.value)}
                                 value={weight}
                                 type="text"
                                 name="weight"

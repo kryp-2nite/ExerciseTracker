@@ -31,7 +31,7 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
                 {!isEditing && <b>{author}</b>}
                 {isEditing && (
                     <input 
-                        onchange={(e) => setAuthor(e.target.value)}
+                        onChange={(e) => setAuthor(e.target.value)}
                         value={editedAuthor}
                         type="text"
                         name="author"
@@ -42,7 +42,7 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
                 {!isEditing && <span>{content}</span>}
                 {isEditing && (
                     <input 
-                        onchange={(e) => setContent(e.target.value)}
+                        onChange={(e) => setContent(e.target.value)}
                         value={editContent}
                         type="text"
                         name="content"
