@@ -11,7 +11,7 @@ const HomePage = () => {
         console.log("fetched Posts")
         let res = await ExercisePostService.getAll();
         if (res.status === 200) {
-            setPosts(res.data.data.reverse());
+            // setPosts(res.data.data.reverse());
         }
     }
 

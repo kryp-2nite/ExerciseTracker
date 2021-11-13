@@ -1,6 +1,8 @@
 deployed site
 https://frozen-garden-03722.herokuapp.com/
 
+to start front end npm start
+to start backend cd backend/nodemon server
 
 # Getting Started with Create React App
 
