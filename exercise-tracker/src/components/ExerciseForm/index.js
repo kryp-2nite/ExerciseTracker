@@ -68,6 +68,7 @@ const PostForm = ({getPostsAgain}) => {
                 value={author}
                 type="text"
                 name="author"
+                placeholder="author"
             />
             <button onClick={handleSubmit}>Add your Exercise!</button>
         </div>
