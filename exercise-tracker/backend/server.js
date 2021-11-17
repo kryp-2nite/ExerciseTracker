@@ -30,9 +30,9 @@ app.use((req, res, next) => {
 app.use("/api", routes);
 
 //This is to catch anything that's trying to hit an api route that isn't made
-app.all("/api/*", function (req, res, next) {
-    res.send("THIS IS NOT AN API ROUTE");
-});
+// app.all("/api/*", function (req, res, next) {
+//     res.send("THIS IS NOT AN API ROUTE");
+// });
 
 //IS THE REACT FULL STACK MAGIC MIDDLEWARE
 /*

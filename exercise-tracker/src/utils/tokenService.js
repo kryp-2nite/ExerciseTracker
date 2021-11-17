@@ -15,12 +15,12 @@ function setToken(token) {
 function getToken() {
     let token = localStorage.getItem('token');
     tellExerciseTrackerTo.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-    console.log('GETTING TOKEN FROM LOCAL STORAGE AND SETTING HEADERS: ', token);
+    
 
     if (token) {
         //Check if expired, remove if it is expired
         const payload = JSON.parse(atob(token.split('.')[1]));
-        console.log('DECODED PAYLOAD: ', payload);
+        
         //JWT's exp is expressed in seconds, not milliseconds, so convert
         if (payload.exp < Date.now() / 1000) {
             localStorage.removeItem('token');

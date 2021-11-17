@@ -1,39 +1,39 @@
 import tellExerciseTrackerTo from "./tellExerciseTrackerTo";
 
 const getAll = () => {
-    return tellExerciseTrackerTo.get('/ExercisePost');
+    return tellExerciseTrackerTo.get('/Exercises');
 }
 
 const get = (id) => {
-    return tellExerciseTrackerTo.get(`/ExercisePost/${id}`);
+    return tellExerciseTrackerTo.get(`/Exercises/${id}`);
 }
 
 const getAllComments = (id) => {
-    return tellExerciseTrackerTo.get(`/ExercisePost/${id}/comments`);
+    return tellExerciseTrackerTo.get(`/Exercises/${id}/comments`);
 }
 
-const create = (data) => {
-    return tellExerciseTrackerTo.post(`/ExercisePost`, data);
+const create = (id, data) => {
+    return tellExerciseTrackerTo.post(`/Exercises/${id}`, data);
 }
 
 const createComment = (id, data) => {
-    return tellExerciseTrackerTo.post(`/ExercisePost/${id}/comments`, data);
+    return tellExerciseTrackerTo.post(`/Exercises/${id}/comments`, data);
 }
 
 const update = (id, data) => {
-    return tellExerciseTrackerTo.put(`/ExercisePost/${id}`, data);
+    return tellExerciseTrackerTo.put(`/Exercises/${id}`, data);
 }
 
 const updateComment = (id, commentId, data) => {
-    return tellExerciseTrackerTo.put(`/ExercisePost/${id}/comment/${commentId}`, data);
+    return tellExerciseTrackerTo.put(`/Exercises/${id}/comment/${commentId}`, data);
 }
 
 const remove = (id) => {
-    return tellExerciseTrackerTo.delete(`/ExercisePost/${id}`)
+    return tellExerciseTrackerTo.delete(`/Exercises/${id}`)
 }
 
 const removeComment = (id, commentId) => {
-    return tellExerciseTrackerTo.delete(`/ExercisePost/${id}/comment/${commentId}`)
+    return tellExerciseTrackerTo.delete(`/Exercises/${id}/comment/${commentId}`)
 }
 
 

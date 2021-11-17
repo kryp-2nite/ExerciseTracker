@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./styles.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import * as UserService from '../../api/UserService'
 import { setToken } from '../../utils/tokenService';
 
@@ -22,7 +22,7 @@ const Register = () => {
       };
 
       const res = await UserService.create(newExercisePost);
-      console.log(res);
+    //   console.log(res);
 
       //trying to extract a token
       if(res.data.data) {
@@ -34,7 +34,7 @@ const Register = () => {
             setEmail('');
             setPassword('');
             //redirect to homepage
-            navigate.push('/');
+            navigate('/');
         }
       } else {
           alert('server error');
@@ -84,6 +84,10 @@ const Register = () => {
                 <button type="submit" className="button" onClick={handleSubmit}>Register
                 </button>
           </div>
+            <h3>Already a Member</h3>
+            <ul>
+                <li><Link to="/">Log In</Link></li>
+            </ul>
       </div>
   );
 };

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { setToken } from '../../utils/tokenService';
-import * as UserService from "../../api/UserService"
+import * as UserService from "../../api/UserService";
+
 
 const Signin = () => {
     const navigate = useNavigate();
@@ -22,12 +23,12 @@ const Signin = () => {
 
         if(res.data.data) {
             const token = res.data.data.token;
-            console.log('FROM LOGIN FORM: ', token);
+            // console.log('FROM LOGIN FORM: ', token);
             alert('You are now logged in.');
             setToken(token);
             setEmail('');
             setPassword('');
-            navigate.push('/homepage')
+            navigate('/landing')
         } else {
             alert('Server error, Enter valid credentials.');
         }
@@ -55,6 +56,10 @@ const Signin = () => {
                 />
                 <button className="button" type="submit" onClick={handleSubmit}>Sign In
                 </button>
+                <h3>Not a Member yet?</h3>
+                    <ul>
+                        <li><Link to="/register">Register</Link></li>
+                    </ul>
             </div>
         </div>
     );

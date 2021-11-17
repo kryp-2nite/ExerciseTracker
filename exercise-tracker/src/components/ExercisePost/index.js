@@ -105,14 +105,14 @@ const Posts = ({
                 </div>
                 <div className="comment__section">
                     <div className="chat__section">
-                        <h6 className="chat__h6">Chat:</h6>
+                        <h6 className="chat__h6">Comments:</h6>
                         {comments.map((comment) => {
                             return (
                                 <Comment
                                 author={comment.author}
                                 content={comment.content}
                                 key={comment._id}
-                                commentID={comment._id}
+                                commentId={comment._id}
                                 id={id}
                                 getCommentsAgain={(id) => fetchComments(id)}
                                 />
