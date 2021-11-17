@@ -1,8 +1,9 @@
 import React, { useState }  from 'react';
+import {  Link } from 'react-router-dom';
 import * as ExercisePostService from '../../api/ExercisePostService'
 import './style.css';
 
-const PostForm = ({getPostsAgain}) => {
+const PostForm = ({id, getPostsAgain}) => {
     const [typeOfExercise, setTypeOfExercise] = useState("");
     const [date, setDate] = useState("");
     const [sets, setSets] = useState("");
@@ -14,19 +15,24 @@ const PostForm = ({getPostsAgain}) => {
    
     const handleSubmit = async () => {
         let newPost = { typeOfExercise, date, sets, reps, weight, author };
-        const res = await ExercisePostService.create(newPost);
-        if(res.status === 201) {
+        console.log(id);
+        const res = await ExercisePostService.create(id, newPost);
+        console.log("rest", res);
+        if(res.status === 200) {
+            
             setTypeOfExercise("");
             setDate("");
             setSets("");
             setReps("");
             setWeight("");
             setAuthor("");
+            getPostsAgain();
         } else {
             alert("service Error");
         }
-    };
 
+    };
+    
     return (
         <div className="post__form--inputs">
             <input
@@ -71,6 +77,11 @@ const PostForm = ({getPostsAgain}) => {
                 placeholder="author"
             />
             <button onClick={handleSubmit}>Add your Exercise!</button>
+            
+            <ul>
+                 <li><Link to="/landing">Back to Home</Link></li>
+            </ul>
+
         </div>
     );
 };

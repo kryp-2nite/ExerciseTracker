@@ -13,7 +13,7 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
         if (isEditing) {
             let editPost = {
                 author: editedAuthor,
-                content: content,
+                content: editContent,
             };
             await ExercisePostService.updateComment(id, commentId, editPost);
             getCommentsAgain(id);
@@ -21,6 +21,8 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
     };
 
     const handleDelete = async () => {
+        console.log('CommentId: ', commentId);
+        console.log('Id: ', id);
         await ExercisePostService.removeComment(id, commentId);
         getCommentsAgain(id);
     }

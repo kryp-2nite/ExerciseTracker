@@ -16,8 +16,8 @@ const Nav = () => {
                  <Link to="/" style={{linkStyle}}>
                     Home
                 </Link>
-                <Link to="/register" style={{linkStyle}}>
-                    Register
+                <Link to="addExercise" style={{linkStyle}}>
+                    Add Exercise
                 </Link>
                 <Link to="/signin" style={{linkStyle}}>
                     Sign In

@@ -1,5 +1,6 @@
 const db = require('../models');
 const ExercisePost = require('../models/Exercise');
+// const ExerciseComment = require()
 
 const createExercisePost = (req, res) => {
     let typeOfExercise = req.body.typeOfExercise;
@@ -10,7 +11,7 @@ const createExercisePost = (req, res) => {
     let comments = req.body.comments;
     let author = req.body.author;
 
-    const post = new Exercise({
+    const Post = new ExercisePost({
         typeOfExercise: typeOfExercise,
         date: date,
         sets: sets,
@@ -20,8 +21,9 @@ const createExercisePost = (req, res) => {
         author: author,
     });
 
-    console.log(post);
-    post.save((err, post) => {
+    // console.log(post);
+    Post.save((err, post) => {
+        console.log(err);
         if (err) {
             return res.status(400).json({ 
                 errors: err.message
@@ -39,7 +41,7 @@ const index = (req, res) => {
     console.log("index:")
     ExercisePost.find({}, (err, foundPosts) => {
         if (err) return console.log("Error in ExercisePost#index", err);
-        console.log(foundPosts);
+        // console.log(foundPosts);
         return res.status(200).json({ 
             message: "Success",
             data: foundPosts,
@@ -60,7 +62,7 @@ const showExercisePostById = (req, res) => {
 
 
 const updateExercise = (req, res) => {
-    db.ExercisePost.findByIdAndUpdate(
+    ExercisePost.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true },
@@ -109,10 +111,13 @@ const createComment = (req, res) => {
 const updateComment = (req, res) => {
     ExercisePost.findById(req.params.id)
     .then(foundPost => {
+        console.log('FoundPost',foundPost)
         if (!foundPost) return console.log("Error in Comment#update")
 
         const commentById = foundPost.comments.id(req.params.commentId);
-        commentById.author = req.body.author;
+        
+        commentById.author = req.body.author,
+        
         commentById.content = req.body.content;
         foundPost.save();
 
@@ -137,12 +142,14 @@ const destroy = (req, res) => {
 
 
 const destroyComment = (req, res) => {
+    console.log('are you being hit??');
     ExercisePost.findById(req.params.id)
     .then(foundPost => {
+        console.log('what do you look like??: ', foundPost)
         if (!foundPost) return console.log("Error in Comment#")
 
         const commentById = foundPost.comments.id(req.params.commentId)
-        console.log(commentById)
+        console.log('commentById: ', commentById)
         commentById.remove();
         foundPost.save();
 

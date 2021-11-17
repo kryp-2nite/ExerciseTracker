@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import ExercisePost from "../../components/ExercisePost";
 import ExerciseForm from '../../components/ExerciseForm';
+import { getUser } from "../../api/UserService"
 import * as ExercisePostService from "../../api/ExercisePostService";
-import Nav from "../../components/Nav";
+import Logout from '../../components/Logout'
+
+
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
+    const [user] = useState(getUser);
 
     async function fetchPosts() {
-        console.log("fetched Posts")
         let res = await ExercisePostService.getAll();
-        if (res.status === 200) {
-            // setPosts(res.data.data.reverse());
-        }
+       if (res.status === 200) {
+           setPosts(res.data.data.reverse())
+       }
     }
 
     useEffect(() =>{
+    
         fetchPosts();
     }, []);
 
     return (
         <div>
-            <Nav />
+            <ul>
+                <li><Link to="/addExercise">Add Exercise</Link></li>
+            </ul>
+            <Logout />
             <div>
-                <ExerciseForm getPostAgain={() => fetchPosts()} /> 
+            
+                <ExerciseForm id={user._id} getPostsAgain={() => fetchPosts()} /> 
                  {posts.map((post) => {
                     return (
                         <ExercisePost 
