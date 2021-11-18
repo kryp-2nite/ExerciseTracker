@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("https://www.stockvault.net//data/2014/09/14/162046/thumb16.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container__register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.register--h1{
+    margin: 32px;
+    color: red;
+    font-size: 56px;
+}
+
+.register--form{
+    border: 2px solid black;
+    background-color: black;
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);
+    opacity: 0.8;
+    z-index: 1;
+    height: 300px;
+    width: 900px;
+    margin: 24px;
+    text-align: center;
+}
+
+.sign__up--h3{
+    color: white;
+    margin: 24px 0;
+}
+
+.register__firstname, 
+.register__lastname, 
+.register__email,
+.register__password {
+    margin-right: 24px;
+    margin-top: 24px;
+    border: 2px solid #eee;
+    border-radius:10px;
+    text-align: center;
+    height:50px;
+    width:150px;
+}
+
+.member__h3{
+    margin: 24px 0;
+    font-size: 40px;
+    color: black;
+}
+
+.login {
+    font-size: 36px;
+    margin-top: 24px;
+}
+
+.login-1 {
+    color: red;
+    border: 2px solid red;
+    padding: 8px;
+    background-color:black
+}
+
+.login-1:hover{
+    background-color: white;
+    color: black;
+}

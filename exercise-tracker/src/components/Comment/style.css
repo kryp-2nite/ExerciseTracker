@@ -1,0 +1,35 @@
+.entry {
+    justify-content: space-evenly;
+}
+
+.btn__edit {
+    margin: 16px 16px;
+    height: 35px;
+    width: 55px;
+    border-radius: 10px;
+}
+
+.btn__edit:hover{
+    background-color: black;
+    color: white;
+}
+
+.btn__delete{
+    height: 35px;
+    width: 55px;
+    border-radius: 10px;
+}
+
+.btn__delete:hover{
+    background-color: black;
+    color: white;
+}
+
+.comment__content{
+    font-size: 16px;
+    color: red;
+}
+
+.comment__author-title{
+    font-size: 24px;
+}

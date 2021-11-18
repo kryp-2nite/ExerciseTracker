@@ -42,7 +42,7 @@ const Register = () => {
   }
 
   return(
-      <div>
+      <div className="container__register">
           <h1 className="register--h1">Best place to keep track of your workouts!</h1>
           <div className="register--form">
                 <h3 className="sign__up--h3">Sign Up Now!</h3>
@@ -84,9 +84,9 @@ const Register = () => {
                 <button type="submit" className="button" onClick={handleSubmit}>Register
                 </button>
           </div>
-            <h3>Already a Member</h3>
+            <h3 className="member__h3">Already a Member</h3>
             <ul>
-                <li><Link to="/">Log In</Link></li>
+                <li className="login"><Link className="login-1" to="/">Log In Here</Link></li>
             </ul>
       </div>
   );

@@ -1,0 +1,13 @@
+.logout__btn {
+    position:fixed;
+    right:10px;
+    top:5px;
+    font-size: 24px;
+    padding: 9px;
+    
+}
+
+.logout__btn:hover {
+    background-color: black;
+    color: white;
+}

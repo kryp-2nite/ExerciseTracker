@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+    background-image: url("https://img.freepik.com/free-photo/gym-interior-with-equipments_23-2147949749.jpg?size=626&ext=jpg");
+    background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.container__signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.signin__form {
+    border: 2px solid black;
+    background-color: black;
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);
+    opacity: 0.8;
+    z-index: 1;
+    display: flex;
+}
+
+.sign__in--h1{
+    margin: 32px;
+    color: white;
+    font-size: 56px;
+}
+
+.signin__form {
+    margin: 24px;
+    padding: 24px;
+    height: 300px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.signin__h3 {
+    color: white;
+    margin-bottom: 24px;
+}
+
+.sign__in--email {
+    margin-bottom: 16px;
+    border: 2px solid #eee;
+    border-radius:10px;
+    text-align: center;
+    height:75px;
+    width:150px;
+}
+
+.sign__in--password{
+    margin-bottom: 16px;
+    border: 2px solid #eee;
+    border-radius:10px;
+    text-align: center;
+     height:75px;
+     width:150px;
+}
+
+.button {
+    border-radius:10px;
+    border-style:outset;
+     border-color:#0066A2;
+     height: 75px;
+     width:100px;
+     font:bold15px arial,sans-serif;
+     text-shadow:none;
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.register {
+    margin-top: 32px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.register1 {
+    color: red;
+    border: 2px solid red;
+    padding: 8px;
+    background-color:black
+}
+
+.register1:hover {
+    background-color:white;
+    color: black;
+}
+
+.not__member{
+    color: red;
+    margin-top: 24px;
+}

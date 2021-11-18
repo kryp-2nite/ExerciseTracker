@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import ExercisePost from "../../components/ExercisePost";
 import ExerciseForm from '../../components/ExerciseForm';
+import ExerciseDetails from "../../components/ExerciseDetails";
 import { getUser } from "../../api/UserService"
 import * as ExercisePostService from "../../api/ExercisePostService";
 import Logout from '../../components/Logout'
+import './style.css';
 
 
 
@@ -26,13 +28,17 @@ const HomePage = () => {
 
     return (
         <div>
-            <ul>
-                <li><Link to="/addExercise">Add Exercise</Link></li>
-            </ul>
-            <Logout />
-            <div>
+            <div className="nav">
+                <ul>
+                    <Link className="add__exercise" to="/addExercise">Add Exercise</Link>
+                    <Logout />
+                </ul>
+            </div>
+            <div className="post">
+
+                <h1 className="title-h1">Look at what other people are posting</h1>
             
-                <ExerciseForm id={user._id} getPostsAgain={() => fetchPosts()} /> 
+                
                  {posts.map((post) => {
                     return (
                         <ExercisePost 
@@ -41,11 +47,12 @@ const HomePage = () => {
                             sets={post.sets}
                             reps={post.reps}
                             weight={post.weight}
+                            author={post.author}
                             postComments ={post.comments}
                             key={post._id}
                             id={post._id}
                             getPostAgain={() => fetchPosts()}
-                        />
+                            />
                     );
                 })}
             </div>

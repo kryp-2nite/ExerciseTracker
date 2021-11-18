@@ -12,6 +12,8 @@ const Posts = ({
     sets,
     reps,
     weight,
+    author,
+    date
 }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTypeOfExercise, setTypeOfExercise] = useState(typeOfExercise);
@@ -19,6 +21,8 @@ const Posts = ({
     const [editedSets, setSets] = useState(sets);
     const [editedReps, setReps] = useState(reps);
     const [editedWeight, setWeight] = useState(weight);
+    const [editAuthor, setAuthor] = useState(author);
+    const [editDate, setDate] = useState(date);
 
     const handleEdit = async() => {
         console.log("handled edit");
@@ -30,6 +34,7 @@ const Posts = ({
                 sets: editedSets,
                 reps: editedReps,
                 weight: editedWeight,
+                author: editAuthor,
             };
             await ExercisePostService.update(id, editedPost);
             getPostAgain();
@@ -54,9 +59,9 @@ const Posts = ({
 
     return (
         <div>
-            <div className="container">
+            <div className="container__home">
                 <div className="post__body">
-                    {!isEditing && <h3>{typeOfExercise}</h3>}
+                    {!isEditing && <h3 className="post__title--h3">{typeOfExercise}</h3>}
                     {isEditing && (
                         <input 
                             onChange={(e) => setTypeOfExercise(e.target.value)}
@@ -65,14 +70,32 @@ const Posts = ({
                             name="TypeOfExercise"
                         />
                     )}
-                    <div>
-                        <button onClick={handleEdit}>
-                            {isEditing ? "SUBMIT" : "EDIT"}
+                    <div >
+                        <button className="button post__btn" onClick={handleEdit}>
+                            {isEditing ? "SUBMIT" : "EDIT POST"}
                         </button>
                         <button className="button" onClick={handleDelete}> Delete Post </button>
                     </div>
                 </div>
-                {!isEditing && <p>sets: {sets}</p>}
+                {!isEditing && <h3>Author: {author}</h3>}
+                {isEditing && (
+                    <input 
+                        onChange={(e) => setAuthor(e.target.value)}
+                        value={editAuthor}
+                        type="text"
+                        name="sets"
+                    />
+                )}
+                {!isEditing && <h3>Date: {date}</h3>}
+                {isEditing && (
+                    <input 
+                        onChange={(e) => setDate(e.target.value)}
+                        value={editDate}
+                        type="text"
+                        name="sets"
+                    />
+                )}
+                {!isEditing && <p className="sets__form">sets: {sets}</p>}
                 {isEditing && (
                     <input 
                         onChange={(e) => setSets(e.target.value)}
@@ -82,7 +105,7 @@ const Posts = ({
                     />
                 )}
                 <div>
-                    {!isEditing && <p>reps: {reps}</p>}
+                    {!isEditing && <p className="reps__form">reps: {reps}</p>}
                     {isEditing && (
                         <input 
                             onChange={(e) => setReps(e.target.value)}
@@ -92,7 +115,7 @@ const Posts = ({
                         />
                     )}
                     <div>
-                        {!isEditing && <p>Weight: {weight}</p>}
+                        {!isEditing && <p className="weight__form">Weight: {weight}</p>}
                         {isEditing && (
                             <input 
                                 onChange={(e) =>setWeight(e.target.value)}
@@ -105,7 +128,7 @@ const Posts = ({
                 </div>
                 <div className="comment__section">
                     <div className="chat__section">
-                        <h6 className="chat__h6">Comments:</h6>
+                        <h5 className="chat__h5">Comments:</h5>
                         {comments.map((comment) => {
                             return (
                                 <Comment

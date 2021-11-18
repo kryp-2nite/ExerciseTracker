@@ -22,14 +22,14 @@ const CommentForm = ({ id, getCommentsAgain, getPostAgain }) => {
 
     return (
         <div className="comment__form">
-            <input 
+            <input className="comment__author"
                 onChange={(e) => setAuthor(e.target.value)}
                 value={author}
                 type="text"
                 name="author"
                 placeholder="AUTHOR"
             />
-            <input 
+            <input className="comment__content"
                 onChange={(e) => setContent(e.target.value)}
                 value={content}
                 type="text"

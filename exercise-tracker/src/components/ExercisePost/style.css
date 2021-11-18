@@ -1,0 +1,33 @@
+.post__body {
+   margin-bottom: 20px; 
+}
+
+.post__title--h3{
+    margin: 24px;
+    font-size: 32px;
+}
+
+.post__btn {
+    margin: 0 16px;
+}
+
+.sets__form,
+.reps__form,
+.weight__form {
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+
+.comment__section{
+    margin: 16px 0;
+}
+
+.chat__h5{
+margin-bottom: 8px;
+font-size: 18px;
+}
+
+.comment__form{
+    margin: 0 8px;
+}

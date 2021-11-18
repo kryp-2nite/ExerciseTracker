@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-
+import "./style.css"
 
 
 function Logout() {
@@ -13,7 +13,7 @@ function Logout() {
 
     return (
         <div>
-            <button className="button" onClick={handleLogOut}>Log Out</button>
+            <button className="logout__btn" onClick={handleLogOut}>Log Out</button>
         </div>
     )
 }

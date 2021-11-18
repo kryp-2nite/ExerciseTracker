@@ -1,0 +1,7 @@
+.comment__author,
+.comment__content {
+    margin: 0 8px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+}

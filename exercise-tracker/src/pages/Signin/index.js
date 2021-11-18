@@ -35,8 +35,9 @@ const Signin = () => {
     };
 
     return(
-        <div>
+        <div className="container__signin">
             <h1 className="sign__in--h1">Sign In to get Tracking!</h1>
+            
             <div className="signin__form">
                 <h3 className="signin__h3">Sign In Here</h3>
                 <input 
@@ -56,9 +57,9 @@ const Signin = () => {
                 />
                 <button className="button" type="submit" onClick={handleSubmit}>Sign In
                 </button>
-                <h3>Not a Member yet?</h3>
+                <h3 className="not__member">Not a Member yet?</h3>
                     <ul>
-                        <li><Link to="/register">Register</Link></li>
+                        <li className="register"><Link className="register1" to="/register">Register Here</Link></li>
                     </ul>
             </div>
         </div>

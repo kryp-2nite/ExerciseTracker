@@ -1,0 +1,87 @@
+
+
+.add__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    height: 550px;
+    opacity: 0.65;
+    background-color:lightgray;
+    z-index: 1;
+}
+
+.add__h1 {
+    color: black;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.margin__1 {
+    margin: 24px;
+}
+
+.typeof__exercise{
+    margin-top: 32px;
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.date__section{
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.sets__section{
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.reps__section{
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.weight__section{
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.author__section{
+    width: 215px;
+    text-align: center;
+    height: 45px;
+    border-radius: 15px;
+}
+::placeholder{
+    color: black;
+    font-weight: bold;
+}
+
+.add__button{
+    margin-bottom: 16px;
+}
+
+.back__home--link{
+    margin-top: 24px;
+    font-size: 32px;
+}
+
+.home__1{
+    color: black;
+}
+
+.home__1:hover{
+    color: red;
+}

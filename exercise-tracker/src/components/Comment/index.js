@@ -30,7 +30,7 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
     return (
         <div className="comments">
             <span className="entry">
-                {!isEditing && <b>{author}</b>}
+                {!isEditing && <b className="comment__author-title">{author}</b>}
                 {isEditing && (
                     <input 
                         onChange={(e) => setAuthor(e.target.value)}
@@ -41,7 +41,7 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
                     />
                 )}
                 :
-                {!isEditing && <span>{content}</span>}
+                {!isEditing && <span className="comment__content">{content}</span>}
                 {isEditing && (
                     <input 
                         onChange={(e) => setContent(e.target.value)}
@@ -53,10 +53,10 @@ const Comment = ({ id, author, content, getCommentsAgain, commentId }) => {
                 )}
             </span>
             <span className="btn">
-                    <button onClick={handleEdit}>
+                    <button className="btn__edit" onClick={handleEdit}>
                         {isEditing ? "POST" : "EDIT"}
                     </button>
-                    <button onClick={handleDelete}>Delete</button>
+                    <button className="btn__delete" onClick={handleDelete}>Delete</button>
             </span>
         </div>
     )
