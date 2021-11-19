@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import ExercisePost from "../../components/ExercisePost";
-import ExerciseForm from '../../components/ExerciseForm';
 import ExerciseDetails from "../../components/ExerciseDetails";
 import { getUser } from "../../api/UserService"
 import * as ExercisePostService from "../../api/ExercisePostService";
@@ -31,6 +30,7 @@ const HomePage = () => {
             <div className="nav">
                 <ul>
                     <Link className="add__exercise" to="/addExercise">Add Exercise</Link>
+                    <Link className="gethelp" to="/gethelp">Get Planning</Link>
                     <Logout />
                 </ul>
             </div>
@@ -41,6 +41,7 @@ const HomePage = () => {
                 
                  {posts.map((post) => {
                     return (
+                        <>
                         <ExercisePost 
                             typeOfExercise = {post.typeOfExercise}
                             date={post.date}
@@ -53,8 +54,10 @@ const HomePage = () => {
                             id={post._id}
                             getPostAgain={() => fetchPosts()}
                             />
-                    );
-                })}
+                          <Link to={`/exerciseDetails/${post._id}`}>Detailed Post</Link>
+                          </>
+                            );
+                        })}
             </div>
         </div>
     );

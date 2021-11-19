@@ -1,0 +1,46 @@
+.workout__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.workout__title{
+    font-size: 56px;
+    color: red;
+    margin-bottom: 32px;
+}
+
+.workout__description{
+    color: rgb(16, 240, 65);
+    margin-bottom: 32px;
+    line-height:1.5;
+}
+
+.workout__link{
+    margin: 16px 0;
+}
+
+.workout__a{
+    color: red;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.workout__a:hover{
+    color: black;
+}
+
+.nutrition:hover{
+    color: aqua !important;
+}
+
+.backto__home{
+    margin-top: 24px;
+    color: white;
+    font-size: 32px;
+}
+
+.backto__home:hover{
+    color: yellow;
+}

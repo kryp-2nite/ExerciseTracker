@@ -77,7 +77,7 @@ const Posts = ({
                         <button className="button" onClick={handleDelete}> Delete Post </button>
                     </div>
                 </div>
-                {!isEditing && <h3>Author: {author}</h3>}
+                {!isEditing && <h3 className="h3__author">Author: {author}</h3>}
                 {isEditing && (
                     <input 
                         onChange={(e) => setAuthor(e.target.value)}

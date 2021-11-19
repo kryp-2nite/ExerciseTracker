@@ -1,9 +1,10 @@
 import React, { useState }  from 'react';
-import {  Link } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import * as ExercisePostService from '../../api/ExercisePostService'
 import './style.css';
 
 const PostForm = ({id, getPostsAgain}) => {
+    const navigate = useNavigate();
     const [typeOfExercise, setTypeOfExercise] = useState("");
     const [date, setDate] = useState("");
     const [sets, setSets] = useState("");
@@ -26,6 +27,7 @@ const PostForm = ({id, getPostsAgain}) => {
             setReps("");
             setWeight("");
             setAuthor("");
+            navigate("/landing");
             // getPostsAgain();
         } else {
             alert("service Error");

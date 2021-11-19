@@ -31,3 +31,7 @@ font-size: 18px;
 .comment__form{
     margin: 0 8px;
 }
+
+.h3__author{
+    color: darkred;
+}

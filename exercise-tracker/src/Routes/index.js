@@ -5,6 +5,7 @@ import ExerciseDetails from '../components/ExerciseDetails'
 import Signin from '../pages/Signin'
 import HomePage from "../pages/HomePage"
 import Register from '../pages/Register'
+import GetHelp from "../components/GetHelp/GetHelp"
 
 function RoutesComponent () {
 return (
@@ -14,7 +15,8 @@ return (
             <Route path="landing" element={<HomePage />} />
             <Route path="/" element={<Signin />}/>
             <Route path="register" element={<Register />}/>
-            <Route path="/exerciseDetails" element={<ExerciseDetails />} />
+            <Route path="/exerciseDetails/:id" element={<ExerciseDetails />} />
+            <Route path="/gethelp" element={<GetHelp />} />
     </Routes>
 </BrowserRouter>
 )
