@@ -43,7 +43,7 @@ const Register = () => {
 
   return(
       <div className="container__register">
-          <h1 className="register--h1">Best place to keep track of your workouts!</h1>
+          <h1 className="register--h1">Best place to post your workouts!</h1>
           <div className="register--form">
                 <h3 className="sign__up--h3">Sign Up Now!</h3>
                 <input
