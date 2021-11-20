@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ExerciseForm from '../ExerciseForm/index'
-import {useParams} from 'react-router'
+import { useParams } from 'react-router'
+import * as ExercisePostService from "../../api/ExercisePostService"
 import axios from 'axios'
 
 function ExerciseDetails() {
     const [detailedExercise, setDetailedExercise] = useState([])
-   const {id} = useParams()
+    const { id } = useParams()
+    console.log("idid: ",id);
 
-   useEffect(() => {
-    axios.get(`http:localhost:3000/api/exerciseDetails/${id}`)
-    .then(response => {
-        console.log("hello")
-        setDetailedExercise(response.data)
-        console.log("response data: ", response.data)
-    })
-    .catch((error) => {
-        console.log('error something:' ,error)
-    })
-   }, [id])
+    useEffect(() => {
+  
+    ExercisePostService.get(id)
+    // console.log(response.data)
+   }, [])
    
     return (
         <div>
-        
+            {/* <h1>{id.typeOfExercise}</h1> */}
     
             <Link  to="/landing">Back to Home</Link>
         </div>

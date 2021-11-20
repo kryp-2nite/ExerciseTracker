@@ -54,7 +54,7 @@ const HomePage = () => {
                             id={post._id}
                             getPostAgain={() => fetchPosts()}
                             />
-                          <Link to={`/exerciseDetails/${post._id}`}>Detailed Post</Link>
+                          {/* <Link to={`/exerciseDetails/${post._id}`}>Detailed Post</Link> */}
                           </>
                             );
                         })}
