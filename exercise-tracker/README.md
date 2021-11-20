@@ -1,6 +1,9 @@
 deployed site
 https://frozen-garden-03722.herokuapp.com/
 
+GitHub
+https://github.com/kryp-2nite/ExerciseTracker/tree/main/exercise-tracker
+
 to start front end npm start
 to start backend cd backend/nodemon server
 
